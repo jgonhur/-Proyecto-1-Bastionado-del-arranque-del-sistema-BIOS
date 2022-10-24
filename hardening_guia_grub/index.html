@@ -1,0 +1,93 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Bastionado del GRUB</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="hardening_guia_grub"
+                  title="Bastionado del GRUB"
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="Ocultación del gestor de arranque GRUB" duration="0">
+        <p> GRUB es un gestor de arranque que se suele instalar por defecto en los sistemas linux y posee ciertas vulnerabilidades que podríamos solucionar. En primer lugar tenemos que acceder al archivo de configuración de GRUB  </p>
+<p>Se encuentra en el directorio <strong>/etc/default/grub</strong>, para editarlo introducimos el comando <code>sudo nano /etc/default/grub</code></p>
+<p class="image-container"><img alt="fichero_grub" src="img\\ad5ef39dc9b68467.png"></p>
+<p>Cambiamos <strong>GRUB_TIMEOUT=5</strong> a <strong>GRUB_TIMEOUT=0</strong></p>
+<p class="image-container"><img alt="timeout" src="img\\b3a48e0b0cf38997.png"></p>
+<p>Guardamos los cambios en el archivo y ejecutamos el comando <code>sudo grub-update</code></p>
+<p class="image-container"><img alt="updategrub" src="img\\1f8d965f4365b267.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Establecer una contraseña de arranque" duration="0">
+        <p> Otra posible capa de seguridad sería establecer una contraseña de arranque. Para proteger el arranque con una contraseña editamos el archivo de configuración <code>/etc/grub.d/40_custom</code>:  </p>
+<p class="image-container"><img alt="pwdarranque" src="img\\945a9ffe34f43a43.png"></p>
+<p>  Importante guardar los cambios ejecutando <code>sudo grub-update</code>:  </p>
+<p class="image-container"><img alt="updategrub" src="img\\6050467990b472a6.png"></p>
+<p>  Como podemos comprobar nos pide la contraseña de arranque:  </p>
+<p class="image-container"><img alt="arranque" src="img\\56bd00b26cfaaf.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Sección 1" duration="10">
+        <h2 is-upgraded>Cajas de información  </h2>
+<p>Negative  </p>
+<p>Esto aparecerá en una caja de información amarilla.  Positive  </p>
+<p>Esto aparecerá en una caja de información verde.   ¡Ya tienes tus cajas de información creadas!   </p>
+<h2 is-upgraded>Lista con viñetas  </h2>
+<p>Texto plano en una lista con viñetas:   </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Lista con viñetas" duration="5">
+        <p>Texto plano en una lista con viñetas:    </p>
+<ul>
+<li>Hola  </li>
+<li>CodeLab  </li>
+<li>Mundo   ¡Ya tienes tu lista con viñetas creada!     <h2 is-upgraded>Lista numerada  </h2>
+</li>
+</ul>
+<ol type="1">
+<li>Lista  </li>
+<li>Utilizando  </li>
+<li>Números   ¡Ya tienes tu lista numerada creada!       Sección 2      <h2 is-upgraded>Añade un enlace  </h2>
+  ¡Añadiendo un enlace!  Ejemplo de enlace     <h2 is-upgraded>Añade una imagen  </h2>
+  ¡Añadiendo una imagen!   !Descripción de la imagen     <h2 is-upgraded>Incrusta un iframe  </h2>
+   !https://codepen.io/tzoght/embed/yRNZaP </li>
+</ol>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
